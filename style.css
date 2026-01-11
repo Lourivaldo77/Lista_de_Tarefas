@@ -1,0 +1,237 @@
+:root {
+    --bg-color: #f4f7f6;
+    --primary-color: #6c5ce7;
+    --primary-hover: #5a4ad1;
+    --delete-color: #ff7675;
+    --delete-hover: #d63031;
+    --text-color: #2d3436;
+    --card-bg: #ffffff;
+    --border-radius: 12px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* Cabeçalho e Input */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    gap: 10px;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+.container_1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    gap: 10px;
+    background: var(--card-bg);
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+.inputexto {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.inputexto:focus {
+    border-color: var(--primary-color);
+}
+
+.bt {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.bt:hover {
+    background-color: var(--primary-hover);
+}
+
+.bt:active {
+    transform: scale(0.98);
+}
+
+/* Lista de Tarefas */
+.container_2 {
+    width: 100%;
+    max-width: 500px;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    min-height: 300px; /* Garante uma altura mínima visualmente agradável */
+}
+
+ul {
+    width: 100%;
+    list-style: none;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.todo-text {
+    flex: 1;
+    font-size: 16px;
+    color: var(--text-color);
+    margin-right: 15px;
+    word-break: break-word;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.todo-complete,
+.todo-edit,
+.todo-delete {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.todo-complete {
+    background-color: #55efc4; /* Verde menta */
+    color: #2d3436;
+}
+
+.todo-complete:hover {
+    background-color: #00b894;
+    color: white;
+}
+
+.todo-edit {
+    background-color: #a29bfe; /* Roxo claro */
+    color: white;
+}
+
+.todo-edit:hover {
+    background-color: #8e44ad;
+}
+
+.todo-delete {
+    background-color: var(--delete-color);
+    color: white;
+}
+
+.todo-delete:hover {
+    background-color: var(--delete-hover);
+}
+
+.todo-item.completed {
+    background-color: #e3e3e3;
+    border-left-color: #b2bec3;
+    opacity: 0.8;
+}
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+    color: #636e72;
+}
+
+.todo-edit-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.box{
+    display:flex;
+    gap:5px;
+}
+.btn-eliminar{
+    padding: 3px 7px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.btn-concluir{
+    padding: 3px 7px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Responsividade */
+@media(max-width: 550px) {
+    .container, .container_2 {
+        width: 100%;
+    }
+    
+    .todo-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .todo-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
