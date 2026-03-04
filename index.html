@@ -1,21 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de Tarefas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <h1 class="Lista">Lista de Tarefas</h1>
-    <div class="container">
-        <input class="inputexto" type="text">
-        <button class="bt" onclick="criar()">Adicionar</button>
+    <div class="app-container">
+        <header class="header">
+            <h1 class="title">
+                <i class="fas fa-clipboard-list"></i>
+                Lista de Tarefas
+            </h1>
+            <p class="subtitle">Organize suas tarefas do dia</p>
+        </header>
+
+        <div class="input-section">
+            <form id="todo-form" class="input-group">
+                <input 
+                    type="text" 
+                    id="todo-input" 
+                    class="todo-input" 
+                    placeholder="Adicione uma nova tarefa..."
+                    autocomplete="off"
+                >
+                <button type="submit" class="add-btn">
+                    <i class="fas fa-plus"></i>
+                    Adicionar
+                </button>
+            </form>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-number" id="total-count">0</span>
+                <span class="stat-label">Total</span>
+            </div>
+            <div class="stat-item pending">
+                <span class="stat-number" id="pending-count">0</span>
+                <span class="stat-label">Pendentes</span>
+            </div>
+            <div class="stat-item completed">
+                <span class="stat-number" id="completed-count">0</span>
+                <span class="stat-label">Concluídas</span>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fas fa-list"></i> Todas
+            </button>
+            <button class="filter-btn" data-filter="pending">
+                <i class="fas fa-clock"></i> Pendentes
+            </button>
+            <button class="filter-btn" data-filter="completed">
+                <i class="fas fa-check-circle"></i> Concluídas
+            </button>
+        </div>
+
+        <section class="todo-list-section">
+            <ul id="todo-list" class="todo-list">
+                <!-- Tarefas serão adicionadas aqui dinamicamente -->
+            </ul>
+            
+            <div id="empty-state" class="empty-state">
+                <i class="fas fa-clipboard"></i>
+                <p>Nenhuma tarefa encontrada</p>
+                <span>Adicione uma tarefa para começar</span>
+            </div>
+        </section>
     </div>
-    <section class="container_2">
-        <ul></ul>
-    </section>
 
     <script src="Script.js"></script>
 </body>
 </html>
+
